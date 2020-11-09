@@ -1,0 +1,23 @@
+﻿@model StoneCase.Domain.Entity.Cliente
+
+<h2>Novo Cliente</h2>
+
+<form asp-controller="Home" asp-action="Registrar">
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Nome</label>
+            <input asp-for="Nome" class="form-control" />
+        </div>
+        <div class="col-lg-3">
+            <label>Estado</label>
+            <input asp-for="Estado" class="form-control" />
+        </div>
+        <div class="col-lg-3">
+            <label>CPF</label>
+            <input asp-for="CPF" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success" onclick="registrar()">Cadastrar Cliente</button>
+</form>

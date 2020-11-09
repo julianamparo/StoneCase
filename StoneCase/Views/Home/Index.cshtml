@@ -1,0 +1,30 @@
+﻿@model StoneCase.Domain.Entity.Cliente
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Estado</td>
+            <td>CPF</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var c in (List<StoneCase.Domain.Entity.Cliente>)ViewBag.ListaClientes)
+        {
+            <tr>
+            <td>@c.Nome</td>
+            <td>@c.Estado</td>
+            <td>@c.CPF</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-primary" onclick="novoCliente()">Novo Cliente</button>
+
+<script>
+    function novoCliente() {
+        window.location.href = window.location.origin + "/Home/Registrar";
+    }
+</script>

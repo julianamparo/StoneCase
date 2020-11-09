@@ -6,15 +6,19 @@ namespace TestesStoneCase
 {
     public class TesteCobranca
     {
-        [Fact]
-        public void CobrancaServiceTest()
+        [Theory]
+        [InlineData("39115227898")]
+        [InlineData("04147557821")]
+        public void CobrancaServiceTest(string cpf)
         {
             CobrancaService cobrancaService = new CobrancaService();
-            double resultado = cobrancaService.CalculoConsumo("39115227898");
-            Assert.Equal(3998, resultado);
-            double resultado2 = cobrancaService.CalculoConsumo("04147557821");
-            Assert.Equal(421, resultado);
+            double resultado = cobrancaService.CalculoConsumo(cpf);
+            string digitosIniciais = cpf.Substring(0, 2);
+            string digitosFinais = cpf.Substring(cpf.Length - 2, 2);
+
+            double valorEsperado = double.Parse(digitosIniciais + digitosFinais);
+            Assert.Equal(valorEsperado, resultado);
+         
         }
 
-    }
 }

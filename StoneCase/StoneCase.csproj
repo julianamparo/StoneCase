@@ -4,10 +4,19 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp3.1\StoneCase.xml</DocumentationFile>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\source\repos\StoneCase\StoneCase.Domain\StoneCase.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\..\source\repos\StoneCase\StoneCase.Repository\StoneCase.Repository.csproj" />
     <ProjectReference Include="..\..\..\..\..\source\repos\StoneCase\StoneCase.Services\StoneCase.Services.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0-rcl"></PackageReference>
+	</ItemGroup>
 
 </Project>

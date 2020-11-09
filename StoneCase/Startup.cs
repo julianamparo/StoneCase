@@ -23,6 +23,7 @@ namespace StoneCase
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "StoneCaseAPI", Version = "v1" }));
             services.AddControllersWithViews();
         }
 
@@ -45,12 +46,18 @@ namespace StoneCase
             app.UseRouting();
 
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            //Configurando a Documentacao Automatica da API
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("v1/swagger.json", "V1");
             });
         }
     }

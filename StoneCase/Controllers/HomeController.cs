@@ -22,6 +22,7 @@ namespace StoneCase.Controllers
             _logger = logger;
         }
 
+        //Popular lista inicial de todos os clientes
         public IActionResult Index()
         {
             ClienteModel clienteModel = new ClienteModel();
@@ -37,6 +38,7 @@ namespace StoneCase.Controllers
             return View();
         }
 
+        //Registro de um novo cliente
         [HttpPost]
         public IActionResult Registrar(Cliente cliente)
         {
@@ -67,5 +69,27 @@ namespace StoneCase.Controllers
                 return BadRequest(result.ErrorMessage);
             }
         }
+
+        //Método que gera o valor de cobranca para todos os clientes cadastrados a partir do serviço de Cobrança
+        public Result GerarCobranca()
+        {
+            Result result = new Result();
+            try
+            {
+                CobrancaModel cobrancaModel = new CobrancaModel();
+                ClienteModel clienteModel = new ClienteModel();
+                List<Cliente> todosClientes = clienteModel.BuscarClientes();
+                cobrancaModel.GerarCobranca(todosClientes, Convert.ToDateTime(DateTime.Now.AddDays(30).ToString("dd/mm/yyyy")));
+            }
+            catch (Exception ex)
+            {
+                result.Sucesso = false;
+                result.ErrorMessage = "Erro ao tentar gerar cobrancas: " + ex.Message;
+
+            }
+
+            return result;
+        }
     }
 }
+

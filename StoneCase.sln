@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoneCase.Repository", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoneCase.Domain", "..\..\..\..\source\repos\StoneCase\StoneCase.Domain\StoneCase.Domain.csproj", "{9145EFB5-3660-4D54-A671-839B0A933C53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesStoneCase", "TestesStoneCase\TestesStoneCase.csproj", "{E1BA09A5-6903-4E1C-AD09-EF4967F8D290}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9145EFB5-3660-4D54-A671-839B0A933C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9145EFB5-3660-4D54-A671-839B0A933C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9145EFB5-3660-4D54-A671-839B0A933C53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1BA09A5-6903-4E1C-AD09-EF4967F8D290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1BA09A5-6903-4E1C-AD09-EF4967F8D290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1BA09A5-6903-4E1C-AD09-EF4967F8D290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1BA09A5-6903-4E1C-AD09-EF4967F8D290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

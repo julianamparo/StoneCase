@@ -22,9 +22,14 @@
 </table>
 
 <button class="btn btn-primary" onclick="novoCliente()">Novo Cliente</button>
+<button class="btn btn-primary" onclick="gerarCobrancas()">Gerar Cobranca</button>
 
 <script>
     function novoCliente() {
         window.location.href = window.location.origin + "/Home/Registrar";
+    }
+
+    function gerarCobrancas() {
+        window.location.href = window.location.origin + "/Home/GerarCobranca";
     }
 </script>

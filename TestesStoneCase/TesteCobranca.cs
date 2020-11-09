@@ -18,7 +18,8 @@ namespace TestesStoneCase
 
             double valorEsperado = double.Parse(digitosIniciais + digitosFinais);
             Assert.Equal(valorEsperado, resultado);
-         
+
         }
 
+    }
 }

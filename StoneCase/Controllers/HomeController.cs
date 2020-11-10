@@ -71,7 +71,7 @@ namespace StoneCase.Controllers
         }
 
         //Método que gera o valor de cobranca para todos os clientes cadastrados a partir do serviço de Cobrança
-        public Result GerarCobranca()
+        public Result GerarCobranca(string dataVencimento)
         {
             Result result = new Result();
             try

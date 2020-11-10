@@ -48,7 +48,7 @@ namespace StoneCase.Controllers
                 CpfValidacao cpfValidacao = new CpfValidacao();
 
                 ClienteModel clienteModel = new ClienteModel();
-                if ((!cpfValidacao.CpfJaCadastrado(cliente.CPF)) || (cpfValidacao.CpfValido(cliente.CPF)))
+                if ((cpfValidacao.CpfJaCadastrado(cliente.CPF)) && (cpfValidacao.CpfValido(cliente.CPF)))
                 {
                     clienteModel.InserirCliente(cliente);
                     result.Sucesso = true;

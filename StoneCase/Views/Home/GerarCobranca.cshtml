@@ -1,17 +1,26 @@
-﻿@model StoneCase.Domain.Entity.Cobranca
-
+﻿@model StoneCase.Domain.Response.RelatorioResult
 
 <h2>Cobranças</h2>
 <table class="table table-bordered">
     <thead>
         <tr>
+            <td>Nome</td>
             <td>CPF</td>
             <td>Vencimento</td>
             <td>Valor</td>
         </tr>
     </thead>
+
     <tbody>
-      
+        <tr>
+            @foreach (var item in (List<StoneCase.Domain.Response.RelatorioResult>)ViewBag.Relatorio)
+            {
+                <td>@item.Nome</td>
+                <td>@item.CPF</td>
+                <td>@item.DataVencimento</td>
+                <td>@item.Valor</td>
+            }
+            </tr>
     </tbody>
 
 

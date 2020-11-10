@@ -1,4 +1,5 @@
 ﻿using StoneCase.Domain.Entity;
+using StoneCase.Domain.Response;
 using StoneCase.Repository.DAL;
 using StoneCase.Services;
 using System;
@@ -10,6 +11,11 @@ namespace StoneCase.Web.Models
 {
     public class CobrancaModel
     {
+        public List<RelatorioResult> GerarRelatorioCobranca()
+        {
+            CobrancaDAO cobrancaDAO = new CobrancaDAO();
+            return cobrancaDAO.GerarRelatorioCobranca();
+        }
         public void GerarCobranca(List<Cliente> clientes, DateTime dataVencimento)
         {
             CobrancaService cobrancaService = new CobrancaService();

@@ -71,15 +71,17 @@ namespace StoneCase.Controllers
         }
 
         //Método que gera o valor de cobranca para todos os clientes cadastrados a partir do serviço de Cobrança
-        public Result GerarCobranca(string dataVencimento)
+        public Result GerarCobranca()
         {
             Result result = new Result();
+            CobrancaModel cobrancaModel = new CobrancaModel();
+       
+            DateTime dataTeste = DateTime.Now.AddDays(30);
             try
-            {
-                CobrancaModel cobrancaModel = new CobrancaModel();
+            {                
                 ClienteModel clienteModel = new ClienteModel();
                 List<Cliente> todosClientes = clienteModel.BuscarClientes();
-                cobrancaModel.GerarCobranca(todosClientes, Convert.ToDateTime(DateTime.Now.AddDays(30).ToString("dd/mm/yyyy")));
+                cobrancaModel.GerarCobranca(todosClientes, DateTime.Parse(dataTeste.ToShortDateString()));
             }
             catch (Exception ex)
             {
@@ -87,6 +89,7 @@ namespace StoneCase.Controllers
                 result.ErrorMessage = "Erro ao tentar gerar cobrancas: " + ex.Message;
 
             }
+            ViewBag.Relatorio = cobrancaModel.GerarRelatorioCobranca();
 
             return result;
         }
